@@ -23,7 +23,7 @@ jobs:
       # Шаг 3: Деплой на сервер
       - name: Deploy to VPS
         run: |
-          ssh -o StrictHostKeyChecking=no devuser@your_vps_ip << 'EOF'
+          ssh -o StrictHostKeyChecking=no devuser@185.117.155.59 << 'EOF'
             # Перейти в директорию с проектом
             cd /home/devuser/gagent
 
