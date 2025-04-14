@@ -14,30 +14,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Шаг 2: Настройка Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-
-      # Шаг 3: Установить зависимости
-      - name: Install dependencies
-        run: npm install
-
-      # Шаг 4: Собрать Nuxt.js проект
-      - name: Build Nuxt.js project
-        run: npm run build
-
-      # Шаг 5: Настройка SSH (для деплоя на сервер)
+      # Шаг 2: Настройка SSH (для деплоя на сервер)
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.5.3
         with:
-          ssh-private-key: ${{ secrets.devuser }}
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      # Шаг 6: Деплой на сервер
+      # Шаг 3: Деплой на сервер
       - name: Deploy to VPS
         run: |
-          ssh -o StrictHostKeyChecking=no devuser@185.117.155.59 << 'EOF'
+          ssh -o StrictHostKeyChecking=no devuser@your_vps_ip << 'EOF'
             # Перейти в директорию с проектом
             cd /home/devuser/gagent
 
