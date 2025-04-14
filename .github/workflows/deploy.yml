@@ -31,11 +31,11 @@ jobs:
             git pull origin main
 
             # Установить зависимости
-            npm install
+            /run/user/1000/fnm_multishells/28367_1744644707457/bin/npm install
 
             # Собрать проект
-            npm run build
+            /run/user/1000/fnm_multishells/28367_1744644707457/bin/npm run build
 
             # Перезапустить Nuxt.js (если используете PM2)
-            pm2 restart nuxt-app || pm2 start npm --name "nuxt-app" -- run start
+            /run/user/1000/fnm_multishells/28367_1744644707457/bin/pm2 restart nuxt-app || /run/user/1000/fnm_multishells/28367_1744644707457/bin/pm2 start npm --name "nuxt-app" -- run start
           EOF
