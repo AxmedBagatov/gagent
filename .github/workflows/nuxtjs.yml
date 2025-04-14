@@ -1,0 +1,55 @@
+name: Deploy Nuxt.js to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Шаг 1: Получить репозиторий
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Шаг 2: Настройка Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      # Шаг 3: Установить зависимости
+      - name: Install dependencies
+        run: npm install
+
+      # Шаг 4: Собрать Nuxt.js проект
+      - name: Build Nuxt.js project
+        run: npm run build
+
+      # Шаг 5: Настройка SSH (для деплоя на сервер)
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.devuser }}
+
+      # Шаг 6: Деплой на сервер
+      - name: Deploy to VPS
+        run: |
+          ssh -o StrictHostKeyChecking=no devuser@185.117.155.59 << 'EOF'
+            # Перейти в директорию с проектом
+            cd /home/devuser/gagent
+
+            # Забрать последние изменения
+            git pull origin main
+
+            # Установить зависимости
+            npm install
+
+            # Собрать проект
+            npm run build
+
+            # Перезапустить Nuxt.js (если используете PM2)
+            pm2 restart nuxt-app || pm2 start npm --name "nuxt-app" -- run start
+          EOF
