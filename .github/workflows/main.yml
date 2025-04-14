@@ -32,7 +32,7 @@ jobs:
       - name: Deploy to VPS
         run: |
           ssh -o StrictHostKeyChecking=no devuser@185.117.155.59 << 'EOF'
-            cd /path/to/your/project
+            cd /home/devuser/gagent
             git pull origin main
             npm install
             npm run build
