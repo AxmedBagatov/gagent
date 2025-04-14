@@ -2,6 +2,7 @@
   <div>
     <p>test test привет</p>
     <p class="vibrate">CI/CD</p>
+    <hr>
     <p class="vibrate">CI/CD</p>
     <NuxtRouteAnnouncer />
     <NuxtWelcome />
