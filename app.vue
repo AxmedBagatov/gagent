@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <p>test test привет</p>
-    <p class="vibrate">CI/CD</p>
-    <hr>
-    <p class="vibrate">CI/CD</p>
-    <hr>
-    <p class="vibrate">CI/CD</p>
+  <div class="p-4">
+    <p class="text-xl text-gray-700">test test привет</p>
+    <p class="vibrate text-2xl text-blue-500">CI/CD</p>
+    <hr class="my-4">
+    <p class="vibrate text-2xl text-blue-500">CI/CD</p>
+    <hr class="my-4">
+    <p class="vibrate text-2xl text-blue-500">CI/CD</p>
     <NuxtRouteAnnouncer />
     <NuxtWelcome />
   </div>

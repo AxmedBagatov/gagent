@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/fonts',
     '@nuxt/image',
-    '@nuxt/test-utils'
+    '@nuxt/test-utils',
+    '@nuxtjs/tailwindcss'
   ]
 })
