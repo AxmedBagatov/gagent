@@ -20,22 +20,26 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.DEVUSER }}
 
-      # Шаг 3: Деплой на сервер
-      - name: Deploy to VPS
+      # Шаг 3: Установить зависимости на сервере
+      - name: Install dependencies
         run: |
           ssh -o StrictHostKeyChecking=no devuser@185.117.155.59 << 'EOF'
-            # Перейти в директорию с проектом
             cd /home/devuser/gagent
+            npm install # Установить все зависимости, включая Tailwind CSS
+          EOF
 
-            # Забрать последние изменения
-            git pull origin main
+      # Шаг 4: Собрать проект
+      - name: Build the project
+        run: |
+          ssh -o StrictHostKeyChecking=no devuser@185.117.155.59 << 'EOF'
+            cd /home/devuser/gagent
+            npm run build # Собрать проект
+          EOF
 
-            # Установить зависимости
-            npm install
-
-            # Собрать проект
-            npm run build
-
-            # Перезапустить Nuxt.js (если используете PM2)
+      # Шаг 5: Перезапустить приложение (если используется PM2)
+      - name: Restart Nuxt.js App
+        run: |
+          ssh -o StrictHostKeyChecking=no devuser@185.117.155.59 << 'EOF'
+            cd /home/devuser/gagent
             pm2 restart nuxt-app || pm2 start npm --name "nuxt-app" -- run start
           EOF
