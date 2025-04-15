@@ -4,6 +4,8 @@
     <p class="vibrate">CI/CD</p>
     <hr>
     <p class="vibrate">CI/CD</p>
+    <hr>
+    <p class="vibrate">CI/CD</p>
     <NuxtRouteAnnouncer />
     <NuxtWelcome />
   </div>
