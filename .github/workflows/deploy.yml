@@ -25,6 +25,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no devuser@185.117.155.59 << 'EOF'
             cd /home/devuser/gagent
+            git reset --hard
             git pull origin main
             npm install # Установить все зависимости, включая Tailwind CSS
           EOF
