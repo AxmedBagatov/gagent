@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/image',
     '@nuxt/test-utils',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    'v-gsap-nuxt'
   ]
 })
