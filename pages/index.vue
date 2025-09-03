@@ -4,3 +4,4 @@
     <p>Добро пожаловать в Nuxt 3!</p>
   </div>
 </template>
+<script></script>
