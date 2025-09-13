@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   ssr: false, // если тебе не нужна серверная отрисовка
   runtimeConfig: {
     public: {
-      apiBase: 'http://localhost:4000', // Это адрес твоего NestJS сервера
+      apiBase: 'http://localhost:1337/api'
     },
   },
   modules: [

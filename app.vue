@@ -2,8 +2,8 @@
   <div>
     <header>
       <nav>
-        <NuxtLink to="/">Главная</NuxtLink> |
-        <NuxtLink to="/test">Тест</NuxtLink>
+        <NuxtLink to="/">Главная</NuxtLink>  
+        <NuxtLink to="/category">Категории</NuxtLink>
       </nav>
     </header>
 
