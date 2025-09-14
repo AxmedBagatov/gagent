@@ -1,4 +1,4 @@
-# Nuxt dev/build outputs
+ Nuxt dev/build outputs
 .output
 .data
 .nuxt
@@ -18,7 +18,14 @@ logs
 .fleet
 .idea
 
+server/aktash/node_modules
+server/aktash/.env
+server/aktash/.tmp
+
 # Local env files
 .env
 .env.*
 !.env.example
+
+
+
